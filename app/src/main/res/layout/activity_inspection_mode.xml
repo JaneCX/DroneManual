@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D3D3"
+    tools:context="com.manual.InspectionMode">
+
+    <!--
+    the double FrameLayout is necessary here to do cropping on the bottom right
+    (which requires the surface not be centered), while keeping the result centered
+   -->
+    <RelativeLayout
+        android:id="@+id/layout_joystick_left"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/image_button_bg_throttle"
+        android:orientation="horizontal">
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/topFlightBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#424242"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:id="@+id/batteryImageViewInspect"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="--- %"
+            android:id="@+id/Bat_Vol_On_Map_Inspect"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:textColor="#fff8f9"
+            android:textStyle="bold"
+            android:textSize="36sp" />
+
+
+        <ImageView
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:id="@+id/imageView3"
+            android:src="@drawable/stopwatch"/>
+
+        <TextView
+            android:id="@+id/Flight_Time_On_Map_Inspect"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="--- s"
+            android:textColor="#fff8f9"
+            android:textSize="36sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:id="@+id/imageView11"
+            android:src="@drawable/altitude_arrow" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="--- m"
+            android:id="@+id/Alt_On_Map_Inspect"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:textColor="#fff8f9"
+            android:textStyle="bold"
+            android:textSize="36sp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_centerHorizontal="true"
+        android:layout_width="700dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="30dp"
+        android:fitsSystemWindows="false" >
+
+        <FrameLayout
+            android:id="@+id/player_surface_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:foregroundGravity="clip_horizontal|clip_vertical"
+            tools:ignore="true">
+            <SurfaceView
+                android:id="@+id/player_surface"
+                android:layout_width="650dp"
+                android:layout_height="450dp" />
+        </FrameLayout>
+    </FrameLayout>
+
+
+    <!--RelativeLayout
+        android:id="@+id/joystick_left"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="24dp"
+        android:background="@drawable/button_inspection_template" >
+    </RelativeLayout-->
+
+    <RelativeLayout
+        android:id="@+id/joystick_right"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/button_inspection_template">
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Return to Supervisory Control"
+        android:textColor="#fff8f9"
+        android:textSize="22sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
+        android:background="#424242"
+        android:id="@+id/Return"/>
+
+    <!--add the drone image-by Rong-->
+    <ImageView
+        android:id="@+id/iv_3"
+        android:layout_width="200dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="130dp"
+        android:src="@drawable/drone1" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map_small"
+        android:layout_width="300dp"
+        android:layout_height="208dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="35dp"
+        android:name="com.google.android.gms.maps.MapFragment"/>
+
+    <!--fragment android:name="com.PPRZonDroid.Left_Menu_Class"
+        android:id="@+id/left_fragment_1"
+        android:layout_width="@dimen/left_menu_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"/-->
+</RelativeLayout>

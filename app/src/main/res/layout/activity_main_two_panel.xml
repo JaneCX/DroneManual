@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_joysticks"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/map_swap"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:background="@android:color/transparent"
+                />
+
+            <RelativeLayout
+                android:id="@+id/layout_joystick_left"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:orientation="horizontal"
+                android:background="@drawable/image_button_bg_throttle"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true">
+            </RelativeLayout>
+
+            <ViewFlipper
+                android:id="@+id/vf_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/map"
+                    android:layout_width="580dp"
+                    android:layout_height="418dp"
+                    android:layout_centerHorizontal="true"
+                    android:name="com.google.android.gms.maps.MapFragment"/>
+
+                <FrameLayout
+                    android:layout_width="580dp"
+                    android:layout_height="418dp"
+                    android:fitsSystemWindows="false"
+                    android:layout_centerHorizontal="true">
+
+                    <FrameLayout
+                        android:id="@+id/player_surface_frame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foregroundGravity="clip_horizontal|clip_vertical"
+                        tools:ignore="true"
+                        android:layout_centerHorizontal="true">
+                        <SurfaceView
+                            android:id="@+id/player_surface"
+                            android:layout_width="580dp"
+                            android:layout_height="418dp"
+                            android:layout_centerHorizontal="true"
+                            />
+                    </FrameLayout>
+                </FrameLayout>
+
+
+
+            </ViewFlipper>
+            <RelativeLayout
+                android:id="@+id/layout_joystick_right"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:orientation="horizontal"
+                android:background="@drawable/image_button_bg_normal"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/topFlightBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:id="@+id/batteryImageView"
+                    />
+
+                <TextView
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:text="--- %"
+                    android:id="@+id/Bat_Vol_On_Map"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:textColor="#424242"
+                    android:textStyle="bold"
+                    android:textSize="36sp" />
+
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:id="@+id/imageView3"
+                    android:src="@drawable/stopwatch"/>
+
+                <TextView
+                    android:id="@+id/Flight_Time_On_Map"
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="--- s"
+                    android:textColor="#424242"
+                    android:textSize="36sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:id="@+id/imageView11"
+                    android:src="@drawable/altitude_arrow" />
+
+                <TextView
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="0.0 m"
+                    android:id="@+id/Alt_On_Map"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="right"
+                    android:textColor="#424242"
+                    android:textStyle="bold"
+                    android:textSize="36sp" />
+
+            </LinearLayout>
+
+            <ViewFlipper
+                android:id="@+id/vf_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true">
+                <FrameLayout
+                    android:layout_width="290dp"
+                    android:layout_height="209dp"
+                    android:fitsSystemWindows="false"
+                    android:layout_alignParentLeft="true">
+
+                    <FrameLayout
+                        android:id="@+id/player_surface_frame_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foregroundGravity="clip_horizontal|clip_vertical"
+                        tools:ignore="true"
+                        android:layout_alignParentLeft="true"
+                        >
+                        <SurfaceView
+                            android:id="@+id/player_surface_small"
+                            android:layout_width="290dp"
+                            android:layout_height="209dp"
+                            android:layout_alignParentLeft="true"
+                            />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/map_small"
+                    android:layout_width="290dp"
+                    android:layout_height="208dp"
+                    android:layout_alignParentLeft="true"
+                    android:name="com.google.android.gms.maps.MapFragment"/>
+
+
+            </ViewFlipper>
+
+            <Button
+                android:id="@+id/toggle"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="255dp"
+                android:layout_marginLeft="255dp"
+                android:layout_marginTop="165dp"
+                android:background="@drawable/swap"/>
+
+
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:id="@+id/buttonList"
+        android:layout_gravity="bottom|right">
+
+        <Button
+            android:id="@+id/takeoff"
+
+            android:text="Takeoff"
+            android:textColor="#fff8f9"
+            android:textSize="22sp"
+
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/buttonshape"
+            />
+
+        <Button
+            android:id="@+id/land_here"
+
+            android:text="Land Here"
+            android:textColor="#fff8f9"
+            android:textSize="22sp"
+
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/buttonshape" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+        <!--change start button-->
+
+        <!--change end button-->
+
+        <!--add the drone image-by Rong-->

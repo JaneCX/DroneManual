@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'
+    }
+}
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+    defaultConfig {
+        minSdkVersion 13
+        targetSdkVersion 16
+        applicationId 'com.manual'
+    }
+    signingConfigs {
+        debug {
+            storeFile file('key/debug.keystore')
+        }
+
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:19.0.0'
+    compile 'com.google.android.gms:play-services:4.0.30'
+    compile 'com.android.support:support-v4:19.0.0'
+    compile 'com.android.support:gridlayout-v7:19.0.0'
+    compile 'com.android.support:support-v13:19.0.0'
+    compile 'com.android.support.constraint:constraint-layout:+'
+    compile 'de.mrmaffen:vlc-android-sdk:1.0.6'
+    compile 'org.jetbrains:annotations-java5:15.0'
+
+}
