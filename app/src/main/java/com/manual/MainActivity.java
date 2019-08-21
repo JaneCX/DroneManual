@@ -1239,10 +1239,10 @@ public class MainActivity extends Activity implements IVideoPlayer {
 	  List<String> options_list = new ArrayList<String>(Arrays.asList(temp_options));
 
 
-	  options_list.add(":file-caching=2000");
-	  options_list.add(":network-caching=1");
+	  options_list.add(":file-caching=1500");
+	  options_list.add(":network-caching=80");
 	  options_list.add(":clock-jitter=0");
-	  options_list.add("--clock-synchro=1");
+	  options_list.add("--clock-synchro=0");
 	  new_options = options_list.toArray(new String[options_list.size()]);
 	  mLibVLC2.playMRL(mMediaUrl2,new_options);
 	  //mLibVLC2.playMRL(mMediaUrl2,new_options);
@@ -1890,6 +1890,17 @@ public class MainActivity extends Activity implements IVideoPlayer {
                                 userId.getSelectedItem() + "_" +
                                         experimentalGroups.getSelectedItem() + "_" +
                                         modules.getSelectedItem() + ".csv");
+						if(modules.getSelectedItem().equals("Module_3")|| modules.getSelectedItem().equals("Module_4")){
+							mapIndex = 0;
+							BitmapDescriptor newLabImage = BitmapDescriptorFactory.fromResource(mapImages[mapIndex]);
+							trueMap1.setImage(newLabImage);
+							trueMap2.setImage(newLabImage);
+						}else if(modules.getSelectedItem().equals("Module_5")) {
+							mapIndex = 1;
+							BitmapDescriptor newLabImage = BitmapDescriptorFactory.fromResource(mapImages[mapIndex]);
+							trueMap1.setImage(newLabImage);
+							trueMap2.setImage(newLabImage);
+						}
                     }
                 }).create();
         fileDialog.setView(dialogLayout);
